@@ -1,6 +1,10 @@
 name: AfterlifeReloaded
 main: me.gewoonhdgaming.afterlife.AfterLife
+<<<<<<< HEAD
 version: 2.1.3
+=======
+version: 2.1.1
+>>>>>>> branch 'master' of https://github.com/rens4000/AfterLife2
 author: [boykev,rens4000]
 commands:
    al:
