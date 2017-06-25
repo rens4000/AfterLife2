@@ -1,9 +1,11 @@
-package me.rens4000.afterlife;
+package me.gewoonhdgaming.afterlife;
 
 import java.util.HashMap;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -52,7 +54,7 @@ public class AfterLife extends JavaPlugin implements Listener {
 			return;
 		}
 		//Do first time stuff
-		al.put(p.getName(), 30);
+		al.put(p.getName(), 300);
         p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, Integer.MAX_VALUE, false, false));
         p.sendTitle(ChatColor.AQUA + "U bent dood gegaan", ChatColor.RED + "U bent tijdelijk een geest");
         p.sendMessage(ChatColor.RED + "Je bent nu 5 minuten niet zichbaar voor andere spelers, ook kan je niet chatten, items opakken of commands uitvoeren. Na 5 minuten zal je weer levend zijn en kan je alles weer!");
@@ -187,6 +189,33 @@ public class AfterLife extends JavaPlugin implements Listener {
 						+ al.get(e.getPlayer().getName()) + " secondes in afterlife!");
 			}
          }
+
+	public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
+if (command.getName().equalsIgnoreCase("al") && sender instanceof Player){
+			
+			Player ghg = (Player) sender;
+			if (args.length == 0) {
+				if (ghg.hasPermission("AfterLife.user")) {
+					ghg.sendMessage(ChatColor.RED + "Development by: Boykev en Rens");
+					ghg.sendMessage(ChatColor.RED + "Product Owner: GewoonHDEnterprise");
+					ghg.sendMessage(ChatColor.RED + "Copyright, contribution not allowed!");
+			}
+			}			
+			else if (args[0].equalsIgnoreCase("info")) {
+				if (ghg.hasPermission("AfterLife.user")) {
+					ghg.sendMessage(ChatColor.RED + "AfterLife is een plugin waarin mensen tijdelijk dood zijn zonder deze uit de server te hoeven bannen");
+			}
+			}
+			else {
+				ghg.sendMessage(ChatColor.RED + "Er is wat fout gegaan!");
+			}
+			return true;
+		}
+		return false;	
+		
+	}
+
+
 }
 	
 
