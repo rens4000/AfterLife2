@@ -26,7 +26,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import me.boykev.ActionbarAPI.ActionBarAPI;
+import com.connorlinfoot.actionbarapi.ActionBarAPI;
 	
 @SuppressWarnings("deprecation")
 public class AfterLife extends JavaPlugin implements Listener {

@@ -2,3 +2,7 @@ name: AfterlifeReloaded
 main: me.gewoonhdgaming.afterlife.AfterLife
 version: 2.1.1
 author: [boykev,rens4000]
+commands:
+   al:
+      description: Informatie over AfterLife
+      aliases: [afterlife, alife]
