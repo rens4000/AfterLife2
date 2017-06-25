@@ -6,6 +6,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -25,7 +26,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 
-import com.connorlinfoot.actionbarapi.ActionBarAPI;
+import me.boykev.ActionbarAPI.ActionBarAPI;
 	
 @SuppressWarnings("deprecation")
 public class AfterLife extends JavaPlugin implements Listener {
@@ -37,11 +38,24 @@ public class AfterLife extends JavaPlugin implements Listener {
 	@Override
 	public void onEnable() {
 		Bukkit.getPluginManager().registerEvents(this, this);
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
+		console.sendMessage(ChatColor.GREEN + "AfterLife");
+		console.sendMessage(ChatColor.GREEN + "Version: 2.3");
+		console.sendMessage(ChatColor.GREEN + "Created by: Boykev & Rens4000");
+		console.sendMessage(ChatColor.GREEN + "Status: Enabled");
+		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
 	}
 	
 	@Override
 	public void onDisable() {
-		
+		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
+		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
+		console.sendMessage(ChatColor.GREEN + "AfterLife");
+		console.sendMessage(ChatColor.GREEN + "Version: 2.3");
+		console.sendMessage(ChatColor.GREEN + "Created by: Boykev & Rens4000");
+		console.sendMessage(ChatColor.GREEN + "Status: Disabled");
+		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
 	}
 	
 	//EVENTS
@@ -103,6 +117,7 @@ public class AfterLife extends JavaPlugin implements Listener {
 	        p.addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, Integer.MAX_VALUE, Integer.MAX_VALUE, false, false));
 	        p.sendTitle(ChatColor.AQUA + "U bent dood gegaan", ChatColor.RED + "U bent tijdelijk een geest");
 	        p.sendMessage(ChatColor.RED + "Je bent nu voor een paar minuten niet zichbaar voor andere spelers, ook kan je niet chatten, items opakken of commands uitvoeren. Na 5 minuten zal je weer levend zijn en kan je alles weer!");
+	        Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "god " + p.getName() + " on");
 	        //Runnable
 	        new BukkitRunnable() {
 	        	
@@ -116,6 +131,7 @@ public class AfterLife extends JavaPlugin implements Listener {
 					if(al.get(p.getName()) == 1) {
 						al.remove(p.getName());
 						p.removePotionEffect(PotionEffectType.INVISIBILITY);
+						Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "god " + p.getName() + " off");
 	                    p.sendMessage(ChatColor.AQUA + "Je bent weer levend! Veel succes.");
 	                    p.kickPlayer(ChatColor.RED + "Je bent weer levend! Rejoin de server zodat mensen je weer kunnen zien!");
 	                    getConfig().set("deaths." + p.getName(), null);
@@ -171,12 +187,12 @@ public class AfterLife extends JavaPlugin implements Listener {
 	}
 	
 	@EventHandler
-	public void onChat(PlayerChatEvent e) {
-		Player p = e.getPlayer();
+	public void onChat(PlayerChatEvent ghg) {
+		Player p = ghg.getPlayer();
 			if(al.containsKey(p.getName())) {
-				e.setCancelled(true);
-				e.getPlayer().sendMessage(ChatColor.RED + "Je zit in de afterlife, dus kan je niet Chatten! Je bent nog voor "
-						+ al.get(e.getPlayer().getName()) + " secondes in afterlife!");
+				ghg.setCancelled(true);
+				ghg.getPlayer().sendMessage(ChatColor.RED + "Je zit in de afterlife, dus kan je niet Chatten! Je bent nog voor "
+						+ al.get(ghg.getPlayer().getName()) + " secondes in afterlife!");
 			}
          }
 	
