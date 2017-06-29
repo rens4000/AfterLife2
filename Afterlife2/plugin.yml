@@ -10,9 +10,9 @@ permissions:
     AfterLife.*:
         description: Toegang tot alle commando's van de AfterLife Plugin
         children:
-            AfterLife.admin: true
+            AfterLife.Admin: true
             AfterLife.user: true
-    AfterLife.admin:
+    AfterLife.Admin:
         description: Geeft administrator rechten voor de plugin
         default: op
     AfterLife.user:

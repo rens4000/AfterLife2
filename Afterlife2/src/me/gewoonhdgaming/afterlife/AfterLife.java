@@ -229,6 +229,12 @@ if (command.getName().equalsIgnoreCase("al") && sender instanceof Player){
 							+ al.get(p.getPlayer().getName()) + " secondes in afterlife!");
 			}
 			}
+			else if (args[0].equalsIgnoreCase("reload")) {
+				if (ghg.hasPermission("AfterLife.Admin")) {
+					Player p = (Player) sender;
+					p.sendMessage(ChatColor.RED + "Reloaden is nog niet mogelijk!");
+				}
+			}
 			else {
 				ghg.sendMessage(ChatColor.RED + "Er is wat fout gegaan!");
 			}
