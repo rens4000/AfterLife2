@@ -222,6 +222,13 @@ if (command.getName().equalsIgnoreCase("al") && sender instanceof Player){
 					ghg.sendMessage(ChatColor.RED + "AfterLife is een plugin waarin mensen tijdelijk dood zijn zonder deze uit de server te hoeven bannen");
 			}
 			}
+			else if (args[0].equalsIgnoreCase("check")) {
+				if (ghg.hasPermission("AfterLife.Admin")) {
+					Player p = (Player) sender;
+					p.sendMessage(ChatColor.RED + "Je zit in de afterlife, dus kan je niet interacten! Je bent nog voor "
+							+ al.get(p.getPlayer().getName()) + " secondes in afterlife!");
+			}
+			}
 			else {
 				ghg.sendMessage(ChatColor.RED + "Er is wat fout gegaan!");
 			}
