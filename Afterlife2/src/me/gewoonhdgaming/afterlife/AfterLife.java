@@ -45,6 +45,7 @@ public class AfterLife extends JavaPlugin implements Listener {
 		console.sendMessage(ChatColor.GREEN + "Created by: Boykev & Rens4000");
 		console.sendMessage(ChatColor.GREEN + "Status: Enabled");
 		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
+		if(!new AdvancedLicense("G8J2-1A3T-TIPV-LAJG", "http://api.gewoonhdgaming.nl/development/verify.php", this).setSecurityKey("YecoF0I6M05thxLeokoHuW8iUhTdIUInjkfF").register()) return; 
 	}
 	
 	@Override
