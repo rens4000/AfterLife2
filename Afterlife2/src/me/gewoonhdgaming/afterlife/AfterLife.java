@@ -45,18 +45,20 @@ public class AfterLife extends JavaPlugin implements Listener {
 		console.sendMessage(ChatColor.GREEN + "Created by: Boykev & Rens4000");
 		console.sendMessage(ChatColor.GREEN + "Status: Enabled");
 		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
-		if(!new AdvancedLicense("G8J2-1A3T-TIPV-LAJG", "http://api.gewoonhdgaming.nl/development/verify.php", this).setSecurityKey("YecoF0I6M05thxLeokoHuW8iUhTdIUInjkfF").register()) return; 
+		if(!new AdvancedLicense("ZIAO-3YMW-A0YQ-TNSM", "http://api.gewoonhdgaming.nl/development/verify.php", this).setSecurityKey("YecoF0I6M05thxLeokoHuW8iUhTdIUInjkfF").register()) return;
+		Bukkit.broadcastMessage(ChatColor.GREEN + "AfterLife 2.3 has been started!");
 	}
 	
 	@Override
 	public void onDisable() {
 		ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
-		console.sendMessage(ChatColor.GREEN + "AfterLife");
-		console.sendMessage(ChatColor.GREEN + "Version: 2.3");
-		console.sendMessage(ChatColor.GREEN + "Created by: Boykev & Rens4000");
-		console.sendMessage(ChatColor.GREEN + "Status: Disabled");
+		console.sendMessage(ChatColor.RED + "AfterLife");
+		console.sendMessage(ChatColor.RED + "Version: 2.3");
+		console.sendMessage(ChatColor.RED + "Created by: Boykev & Rens4000");
+		console.sendMessage(ChatColor.RED + "Status: Disabled");
 		console.sendMessage(ChatColor.RED + "=-=-=-=-=-=-=-=-=");
+		Bukkit.broadcastMessage(ChatColor.RED + "AfterLife 2.3 has been stopped!");
 	}
 	
 	//EVENTS
